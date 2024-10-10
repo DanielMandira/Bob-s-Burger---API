@@ -60,15 +60,15 @@ const Content = (props) => {
 
   return (
     <>
-      <div className={`${modal} modal`}>
-        <p className="absolute text-2xl top-0 right-2 text-red-600 cursor-pointer" onClick={()=>{
+      <section className={`${modal} modalPerson`}>
+        <p className="closeModal" onClick={()=>{
           if(modal==="flex"){
             setModal("hidden")
           }
         }}>X</p>
-        <div className="flex flex-row gap-2 mt-3">
-        <img className="w-80 h-80" src={person.image}/>
-        <div className="flex flex-col gap-4">
+        <div className="infoContainer">
+        <img className="size-64 object- object-top" src={person.image}/>
+        <div className="infoPerson">
         <p className="textPerson">Name: <span className="font-normal">{person.name}</span></p>
         <p className="textPerson">Gender: <span className="font-normal">{person.gender}</span></p>
         <p className="textPerson">Hair: <span className="font-normal">{person.hair}</span></p>
@@ -76,20 +76,14 @@ const Content = (props) => {
         <p className="textPerson">First Episode: <span className="font-normal">{person.firstEpisode}</span></p>
         </div>
         </div>
-      </div>
+      </section>
       <div className="py-3">
         <div
-          className={`${
-            props.list == "list"
-              ? "flex flex-row justify-center "
-              : "flex flex-col "
-          }flex-wrap gap-1`}
+          className="grid grid-cols-4 gap-1"
         >
           {displayPerson.map((person) => (
             <div
-              className={`${
-                props.list == "list" ? "w-96 " : "flex flex-row w-full"
-              }border rounded-lg gap-2 flex flex-col justify-self-center  cursor-pointer items-center p-2 bg-white`}
+              className="personCard"
               key={person.id}
               onClick={() => {
                 setPersonId(person.id)
@@ -97,16 +91,17 @@ const Content = (props) => {
                 setModal("flex")
               }}}
             >
-              <h1 className="text-red-600 text-2xl font-seminormal">
+              <h1 className="personName">
                 {person.name}
               </h1>
               <img
-                className={`${props.list == "list" ? "size-52" : "w-20"}`}
+                className="size-52"
                 src={person.image}
               />
             </div>
           ))}
         </div>
+        <br/>
         <div className="flex justify-evenly p-3">
           <button
             onClick={handlePreviousPage}
@@ -117,7 +112,7 @@ const Content = (props) => {
           >
             Previous
           </button>
-          <p className="text-lg  text-red-600">
+          <p className="text-base  text-white">
             Page <span className="font-normal"> {currentPage} </span> of{" "}
             <span className="font-normal"> {totalPages} </span>
           </p>

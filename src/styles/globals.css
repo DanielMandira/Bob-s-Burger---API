@@ -3,25 +3,83 @@
 @tailwind utilities;
 
 .countButton {
-  @apply px-3 py-2 text-red-600 rounded-lg shadow-black shadow-md hover:scale-105 hover:bg-yellow-400 text-lg font-semibold;
+  @apply py-2 px-4 bg-rose-800 text-zinc-300 rounded-lg shadow-lg hover:scale-105 hover:bg-rose-700 text-lg font-semibold w-fit;
 }
 
 .pageButton {
-  @apply py-2 px-4 bg-red-600 text-yellow-300 rounded-lg shadow-lg hover:scale-105 hover:bg-red-700 text-lg w-24;
+  @apply py-2 px-4 bg-rose-800 text-zinc-300 rounded-lg shadow-lg hover:scale-105 hover:bg-rose-700 text-lg font-semibold w-24;
+}
+.textUser {
+  @apply text-rose-900 text-xl font-semibold text-nowrap;
 }
 
-.textPerson {
-  @apply text-red-600 text-xl font-bold;
+.textPerson{
+  @apply text-white text-lg font-bold;
 }
 
-.modal{
-  @apply fixed backdrop-blur-2xl border-yellow-400 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 border-4 w-fit h-fit rounded-xl  flex-col p-5 z-10
+.modalPerson{
+  @apply fixed backdrop-brightness-50 backdrop-blur-2xl top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 rounded-xl  flex-col p-5 z-10;
+  & .closeModal{
+    @apply absolute top-0 right-2 text-2xl text-white cursor-pointer hover:text-rose-800 hover:scale-105;
+  }
+  & .infoContainer{
+    @apply flex flex-col gap-2;
+  }
+  & .infoPerson{
+    @apply flex flex-col gap-1;
+  }
+  & .textPerson {
+    @apply text-white text-lg font-bold;
+  }
 }
 
-.modalContainer{
+.modalInput{
   @apply fixed backdrop-brightness-50 w-full h-full z-10
 }
 
 .modalNome{
-  @apply fixed bg-white border-yellow-400 top-1/2  left-1/2 -translate-x-1/2 -translate-y-1/2 border-4 w-fit h-fit rounded-xl flex items-center gap-3 flex-row p-5 z-20
+  @apply fixed bg-zinc-500 top-1/2  left-1/2 -translate-x-1/2 -translate-y-1/2 w-fit h-fit rounded-xl flex items-center gap-3 flex-col p-5 z-20;
+  & 
+  .inputName{
+    @apply text-xl p-2 rounded-xl border-2
+  }
+  & .inputName:focus{
+    @apply outline-rose-900
+  }
+  & .buttomName{
+    @apply py-2 px-4 bg-rose-900 text-zinc-300 font-bold rounded-lg hover:scale-105 w-24 hover:bg-rose-800 shadow-xl
+  }
+}
+
+.main{
+  @apply bg-zinc-600 flex flex-col w-full
+}
+
+.NavBar{
+  @apply flex flex-row justify-between items-center p-3 bg-zinc-900 text-white;
+  & .navLink{
+    @apply text-xl font-semibold hover:underline hover:text-rose-900;
+  }
+}
+
+.homeContainer{
+  @apply flex flex-col w-full;
+  & .titleHome{
+    @apply text-4xl font-semibold text-center text-white p-5;
+  }
+}
+
+.personCard{
+  @apply border rounded-xl gap-2 flex flex-col justify-self-center  cursor-pointer items-center bg-white w-64 h-64;
+  & 
+  .personName{
+    @apply text-rose-900 text-lg font-semibold;
+  }
+}
+
+.footer{
+  @apply bg-zinc-900 text-white text-center p-2;
+  & .footerText{
+    @apply text-lg;
+  }
 }

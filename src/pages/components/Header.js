@@ -1,6 +1,7 @@
 import { document } from "postcss";
 import Link from "next/link";
 import { useEffect, useState } from "react";
+
 const Header = () => {
   const [user, setUser] = useState("");
   const [modal, setModal] = useState("flex");
@@ -25,35 +26,40 @@ const Header = () => {
 
   return (
     <>
-      <div className={`${modal} modalContainer`}>
-        <div className="modalNome ">
-          <p className="textPerson">Digite seu Nome: </p>
-          <input
-            className="text-xl p-2 rounded-xl border-2"
-            type="text"
-            placeholder="Digite seu nome"
-            name="name"
-            value={inputValue}
-            onChange={(e) => setInputValue(e.target.value)}
-          />
-          <button className="pageButton" onClick={handleInputChange}>
-            Entrar
-          </button>
-        </div>
-      </div>
-      <div className="flex bg-white flex-row justify-between items-center p-2 text-center border-red-600 border-2 text-red-600 ">
+      <ModalInput modal={modal} inputValue={inputValue} setInputValue={setInputValue} handleInputChange={handleInputChange} />
+      <section className="NavBar">
         <div className="flex">
-          <h1 className="text-4xl font-bold">
-            Bem vindo,<span className="font-black"> {user}</span>
+          <h1 className="text-4xl font-normal">
+            Bem vindo, <span className="font-semibold underline">{user}</span>
           </h1>
         </div>
         <div className="flex flex-row gap-3">
-          <Link href="/">Home</Link>
-          <Link href="/searchPerson">Buscar Personagem</Link>
+          <Link className="navLink" href="/">Home</Link>
+          <Link className="navLink" href="/searchPerson">Buscar Personagem</Link>
         </div>
-      </div>
+      </section>
     </>
   );
 };
 
 export default Header;
+
+const ModalInput = ({modal, inputValue, setInputValue, handleInputChange}) => {
+  return(
+    <section className={`${modal} modalInput`}>
+    <div className="modalNome ">
+      <input
+        className="inputName"
+        type="text"
+        placeholder="Digite seu nome"
+        name="name"
+        value={inputValue}
+        onChange={(e) => setInputValue(e.target.value)}
+      />
+      <button className="buttomName" onClick={handleInputChange}>
+        Entrar
+      </button>
+    </div>
+  </section>
+  )
+}

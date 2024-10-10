@@ -12,7 +12,7 @@ export default function Index() {
       <meta name="viewport" content="width=device-width, initial-scale=1" />
       <link rel="icon" href="/favicon.ico" />
     </Head>
-    <section className="bg-yellow-300 flex flex-col w-full">
+    <section className="main">
       <Header />
       <Home />
       <Footer name="Daniel Mandira" />
